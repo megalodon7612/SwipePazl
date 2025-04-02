@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 024ec1222716d1840adebe750689ae31
+  productGUID: 6cac388c40f512a4c96830b9928d63d7
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -847,10 +847,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: bcdf644e-e9e1-476d-ab93-b69c77bad87e
+  cloudProjectId: 6d516430-1964-4da6-adc8-f6667afa2dd8
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SwipePazl
+  projectName: SwipePazl 2025-04-02_18-22-50
   organizationId: vvkolosov2004
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
