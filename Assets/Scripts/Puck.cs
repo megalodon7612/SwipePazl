@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Puck : MonoBehaviour
@@ -19,7 +22,20 @@ public class Puck : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (targetPosition != transform.position)
+        
+        if (MathF.Abs(transform.position.x) < MathF.Abs(targetPosition.x)-0.5 && moveDirection.x/Vector3.right.x>0)
+        {
+            transform.position += moveDirection * speed * Time.fixedDeltaTime;
+        }
+        else if (MathF.Abs(transform.position.x) > MathF.Abs(targetPosition.x)+1 && moveDirection.x / Vector3.right.x < 0)
+        {
+            transform.position += moveDirection * speed * Time.fixedDeltaTime;
+        }
+        else if (MathF.Abs(transform.position.z) < MathF.Abs(targetPosition.z)-0.5 && moveDirection.z / Vector3.right.z > 0 && Moving)
+        {
+            transform.position += moveDirection * speed * Time.fixedDeltaTime;
+        }
+        else if (MathF.Abs(transform.position.z) > MathF.Abs(targetPosition.z)+1 && moveDirection.z / Vector3.right.z < 0 && Moving)
         {
             transform.position += moveDirection * speed * Time.fixedDeltaTime;
         }
@@ -27,6 +43,8 @@ public class Puck : MonoBehaviour
         {
             Moving = false;
             targetPosition = Vector3.zero;
+            moveDirection = Vector3.zero;
+            transform.position = new Vector3((int)transform.position.x, transform.position.y ,(int)transform.position.z);
         }
     }
 
@@ -44,7 +62,7 @@ public class Puck : MonoBehaviour
     {
         var obstaclePosition = RaycastCheck.ObstacleTo(transform.position, direction);
 
-        if (obstaclePosition != Vector3.zero)
+        if (obstaclePosition != Vector3.zero && !Moving)
         {
             moveDirection = direction;
             targetPosition = obstaclePosition;
@@ -54,7 +72,7 @@ public class Puck : MonoBehaviour
                 Moving = true;
             }
 
-            targetPosition = Vector3.zero;
+            obstaclePosition = Vector3.zero;
         }
     }
 }
