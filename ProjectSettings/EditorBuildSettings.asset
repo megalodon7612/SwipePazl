@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ManeMenu.unity
+    guid: 74a15beb32a4f5440bc56e5497fd4035
   m_configObjects: {}

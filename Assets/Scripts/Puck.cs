@@ -62,7 +62,7 @@ public class Puck : MonoBehaviour
     {
         var obstaclePosition = RaycastCheck.ObstacleTo(transform.position, direction);
 
-        if (obstaclePosition != Vector3.zero && !Moving)
+        if (obstaclePosition != Vector3.zero && Moving==false)
         {
             moveDirection = direction;
             targetPosition = obstaclePosition;
